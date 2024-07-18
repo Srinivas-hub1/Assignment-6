@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CommonElements {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in array 1: ");
+        int n1 = scanner.nextInt();
+        Integer[] array1 = new Integer[n1];
+
+        System.out.println("Enter elements of array 1:");
+        for (int i = 0; i < n1; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            array1[i] = scanner.nextInt();
+        }
+
+        System.out.print("Enter the number of elements in array 2: ");
+        int n2 = scanner.nextInt();
+        Integer[] array2 = new Integer[n2];
+
+        System.out.println("Enter elements of array 2:");
+        for (int i = 0; i < n2; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            array2[i] = scanner.nextInt();
+        }
+
+        List<Integer> commonElements = findCommonElements(array1, array2);
+
+        System.out.println("Common elements: " + commonElements);
+    }
+
+    public static List<Integer> findCommonElements(Integer[] array1, Integer[] array2) {
+        List<Integer> commonElements = new ArrayList<>();
+
+        for (Integer element : array1) {
+            for (Integer otherElement : array2) {
+                if (element.equals(otherElement)) {
+                    commonElements.add(element);
+                    break;
+                }
+            }
+        }
+
+        return commonElements;
+    }
+}
